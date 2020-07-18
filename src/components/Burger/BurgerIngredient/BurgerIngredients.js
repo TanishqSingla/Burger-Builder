@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import classes from "./BurgerIngredient.module.css";
 
 const burgerIngredient = (props) => {
-  let ingredient = null;
+  let ingredient;
   switch (props.type) {
     case "bread-bottom":
       ingredient = <div className={classes.BreadBottom} />;
