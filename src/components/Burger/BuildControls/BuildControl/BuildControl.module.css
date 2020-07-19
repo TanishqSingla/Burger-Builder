@@ -6,6 +6,7 @@
 }
 
 .BuildControl button {
+  display: block;
   height: 40px;
   width: 70px;
   color: white;
