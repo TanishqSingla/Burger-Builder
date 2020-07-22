@@ -12,12 +12,12 @@ function Layout(props) {
   };
 
   const sideDrawerToggleHandler = () => {
-    setSideDrawer({ show: !sideDrawer.show });
+    setSideDrawer((prevState) => ({ show: !prevState.show }));
   };
 
   return (
     <>
-      <Toolbar />
+      <Toolbar drawerToggleClicked={sideDrawerToggleHandler} />
       <SideDrawer closed={sideDrawerCloseHandler} open={sideDrawer.show} />
       <main className={classes.Content}>{props.children}</main>
     </>
