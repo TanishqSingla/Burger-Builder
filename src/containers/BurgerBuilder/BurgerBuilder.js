@@ -22,6 +22,7 @@ class BurgerBuilder extends React.Component {
     purchasable: false,
     purchasing: false,
     loading: false,
+    error: null,
   };
 
   componentDidMount() {
@@ -29,6 +30,9 @@ class BurgerBuilder extends React.Component {
       .get("https://burger-builder-c45ba.firebaseio.com/ingredients.json")
       .then((res) => {
         this.setState({ ingredients: res.data });
+      })
+      .catch((e) => {
+        this.setState({ error: true });
       });
   }
 
@@ -115,7 +119,7 @@ class BurgerBuilder extends React.Component {
 
     let orderSummary = null;
 
-    let burger = <Spinner />;
+    let burger = this.state.error ? <p>Network Error</p> : <Spinner />;
     if (this.state.ingredients) {
       burger = (
         <>
