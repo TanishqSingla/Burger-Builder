@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <div>
         <Layout>
-          <Route path="/" component={BurgerBuilder} />
+          <Route path="/" component={BurgerBuilder} exact />
           <Route path="/checkout" component={Checkout} />
         </Layout>
       </div>
