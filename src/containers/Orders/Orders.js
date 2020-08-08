@@ -31,7 +31,7 @@ class Orders extends React.Component {
           <Order
             key={order.id}
             ingredients={order.ingredients}
-            price={order.price}
+            price={order.pr}
           />
         ))}
       </div>
