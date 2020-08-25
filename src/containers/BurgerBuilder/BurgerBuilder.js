@@ -14,7 +14,6 @@ import Spinner from "../../components/UI/Spinner/Spinner";
 
 class BurgerBuilder extends React.Component {
   state = {
-    purchasable: false,
     purchasing: false,
     loading: false,
     error: null,
@@ -39,7 +38,7 @@ class BurgerBuilder extends React.Component {
       .reduce((sum, e) => {
         return sum + e;
       }, 0);
-    this.setState({ purchasable: sum > 0 });
+    return sum > 0;
   }
 
   purchaseHandler = () => {
@@ -51,23 +50,7 @@ class BurgerBuilder extends React.Component {
   };
 
   purchaseContinueHandler = () => {
-    const queryParams = [];
-
-    for (let i in this.state.ingredients) {
-      queryParams.push(
-        encodeURIComponent(i) +
-          "=" +
-          encodeURIComponent(this.state.ingredients[i])
-      );
-    }
-    queryParams.push("price=" + this.state.totalPrice);
-
-    const queryString = queryParams.join("&");
-
-    this.props.history.push({
-      pathname: "/checkout",
-      search: `?${queryString}`,
-    });
+    this.props.history.push("/checkout");
   };
 
   render() {
@@ -90,7 +73,7 @@ class BurgerBuilder extends React.Component {
             ingredientRemoved={this.props.onIngredientRemoved}
             disabled={disabledInfo}
             price={this.props.price}
-            purchasable={this.state.purchasable}
+            purchasable={this.updatePurchaseState(this.props.ings)}
             ordered={this.purchaseHandler}
           />
         </>
