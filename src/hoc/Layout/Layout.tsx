@@ -5,7 +5,7 @@ import Toolbar from "../../components/Toolbar/Toolbar";
 import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
 
 // TODO add propType
-function Layout(props: any) {
+const Layout: React.FC = (props) => {
   const [sideDrawer, setSideDrawer] = useState({ show: false });
 
   const sideDrawerCloseHandler = () => {
@@ -23,6 +23,6 @@ function Layout(props: any) {
       <main className={classes.Content}>{props.children}</main>
     </>
   );
-}
+};
 
 export default Layout;

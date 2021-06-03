@@ -1,11 +1,15 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
-import Logo from "./../Logo/Logo";
-import NavigationItems from "./../Navigation/NavigationItems/NavigationItems";
+import Logo from "../Logo/Logo";
+import NavigationItems from "../Navigation/NavigationItems/NavigationItems";
 import DrawerToggle from "../Navigation/SideDrawer/DrawerToggle/DrawerToggle";
 import classes from "./Toolbar.module.css";
 
-const toolbar = (props) => (
+interface toolbarProps {
+  drawerToggleClicked: () => void;
+}
+
+const toolbar: React.FC<toolbarProps> = (props) => (
   <header className={classes.Toolbar}>
     <DrawerToggle clicked={props.drawerToggleClicked} />
     <div className={classes.Logo}>
