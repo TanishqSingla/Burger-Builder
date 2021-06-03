@@ -1,10 +1,5 @@
 import * as actionTypes from "../actions/actionTypes";
-import {ingredientName} from '../../types/types'
-
-interface action {
-  type: string,
-  ingredientName: ingredientName
-}
+import {actions} from '../../types/types'
 
 const initialState = {
   ingredients: {
@@ -23,7 +18,7 @@ const INGREDIENT_PRICES = {
   meat: 1.3,
 };
 
-const burgerBuilder = (state = initialState, action: action) => {
+const burgerBuilder = (state = initialState, action: actions) => {
   switch (action.type) {
     case actionTypes.ADD_INGREDIENTS:
       return {

@@ -4,7 +4,8 @@ import classes from "./Layout.module.css";
 import Toolbar from "../../components/Toolbar/Toolbar";
 import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
 
-function Layout(props) {
+// TODO add propType
+function Layout(props: any) {
   const [sideDrawer, setSideDrawer] = useState({ show: false });
 
   const sideDrawerCloseHandler = () => {
