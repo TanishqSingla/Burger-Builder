@@ -1,5 +1,10 @@
 import * as actionTypes from "../actions/actionTypes";
 
+interface action {
+  type: string,
+  ingredientName: 'salad' | 'bacon' | 'cheese' | 'meat'
+}
+
 const initialState = {
   ingredients: {
     salad: 0,
@@ -17,7 +22,7 @@ const INGREDIENT_PRICES = {
   meat: 1.3,
 };
 
-const burgerBuilder = (state = initialState, action) => {
+const burgerBuilder = (state = initialState, action: action) => {
   switch (action.type) {
     case actionTypes.ADD_INGREDIENTS:
       return {
@@ -38,7 +43,6 @@ const burgerBuilder = (state = initialState, action) => {
         totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName],
       };
     default:
-
   }
   return state;
 };
