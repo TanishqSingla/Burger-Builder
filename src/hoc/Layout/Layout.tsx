@@ -4,7 +4,6 @@ import classes from "./Layout.module.css";
 import Toolbar from "../../components/Toolbar/Toolbar";
 import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
 
-// TODO add propType
 const Layout: React.FC = (props) => {
   const [sideDrawer, setSideDrawer] = useState({ show: false });
 

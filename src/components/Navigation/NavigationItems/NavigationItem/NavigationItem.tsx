@@ -1,12 +1,17 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, NavLinkProps } from "react-router-dom";
 
 import classes from "./NavigationItem.module.css";
 
-const navigationItem = (props) => (
+interface navigationItemProps {
+  exact?: boolean;
+  link: string;
+}
+
+const navigationItem: React.FC<navigationItemProps> = (props) => (
   <li className={classes.NavigationItem}>
     <NavLink
-      exact={props.exact}
+      exact={props.exact!}
       to={props.link}
       activeClassName={classes.active}
     >
