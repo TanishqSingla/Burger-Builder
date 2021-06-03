@@ -1,19 +1,18 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import ReactDOM from "react-dom";
+import * as serviceWorker from "./serviceWorker";
 import "./index.css";
 import App from "./App";
-import * as serviceWorker from "./serviceWorker";
+
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import burgerBuilder from "./store/reducers/burgerBuilder";
+
 import { createStore } from "redux";
+import burgerBuilder from "./store/reducers/burgerBuilder";
 
-const store = createStore(
-  burgerBuilder,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = createStore(burgerBuilder);
 
-const app = (
+const app: ReactElement = (
   <Provider store={store}>
     <BrowserRouter>
       <App />
