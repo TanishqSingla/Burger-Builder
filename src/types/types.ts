@@ -5,3 +5,10 @@ export interface actions {
     type: actionType,
     ingredientName: ingredientName
 }
+
+export interface ingredients {
+    salad: number;
+    bacon: number;
+    meat: number;
+    cheese: number;
+}

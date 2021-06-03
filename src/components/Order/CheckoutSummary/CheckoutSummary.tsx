@@ -5,9 +5,12 @@ import Button from "../../UI/Button/Button";
 
 import classes from "./CheckoutSummary.module.css";
 
+import { ingredients } from "../../../types/types";
+
 interface CheckoutSummaryProps {
   checkoutCancelled: () => void;
   checkoutConfirmed: () => void;
+  ingredients: ingredients;
 }
 
 const CheckoutSummary: React.FC<CheckoutSummaryProps> = (props) => {
