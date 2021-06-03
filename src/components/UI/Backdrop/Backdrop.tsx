@@ -2,7 +2,12 @@ import React from "react";
 
 import classes from "./Backdrop.module.css";
 
-const backdrop = (props) => {
+interface backdropProps {
+  show: boolean;
+  dropped: () => void;
+}
+
+const backdrop: React.FC<backdropProps> = (props) => {
   return props.show ? (
     <div className={classes.Backdrop} onClick={props.dropped} />
   ) : null;
