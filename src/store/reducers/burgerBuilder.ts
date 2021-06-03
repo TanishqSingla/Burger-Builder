@@ -1,8 +1,9 @@
 import * as actionTypes from "../actions/actionTypes";
+import {ingredientName} from '../../types/types'
 
 interface action {
   type: string,
-  ingredientName: 'salad' | 'bacon' | 'cheese' | 'meat'
+  ingredientName: ingredientName
 }
 
 const initialState = {
