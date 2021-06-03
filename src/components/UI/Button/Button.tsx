@@ -2,7 +2,13 @@ import React from "react";
 
 import classes from "./Button.module.css";
 
-const button: React.FC = (props) => (
+interface buttonProps {
+  clicked: () => void;
+  btnType: string;
+  disabled?: boolean;
+}
+
+const button: React.FC<buttonProps> = (props) => (
   <button
     disabled={props.disabled}
     className={[classes.Button, classes[props.btnType]].join(" ")}
