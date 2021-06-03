@@ -1,10 +1,15 @@
-import React from "react";
+import React, { Props, PropsWithChildren } from "react";
 import Backdrop from "./../Backdrop/Backdrop";
 
 import classes from "./Modal.module.css";
 
-class Modal extends React.Component {
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
+interface ModalProps {
+  show: boolean;
+  modalClosed: () => void;
+}
+
+class Modal extends React.Component<ModalProps> {
+  shouldComponentUpdate(nextProps: PropsWithChildren<ModalProps>) {
     return (
       nextProps.show !== this.props.show ||
       nextProps.children !== this.props.children
