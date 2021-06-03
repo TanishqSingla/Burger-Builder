@@ -5,7 +5,12 @@ import NavigationItems from "../NavigationItems/NavigationItems";
 import BackDrop from "../../UI/Backdrop/Backdrop";
 import classes from "./SideDrawer.module.css";
 
-const sideDrawer: React.FC = (props) => {
+interface sideDrawer {
+  closed: () => void;
+  open: boolean;
+}
+
+const sideDrawer: React.FC<sideDrawer> = (props) => {
   let attachedClasses = [classes.SideDrawer, classes.Close];
   if (props.open) {
     attachedClasses = [classes.SideDrawer, classes.Open];
