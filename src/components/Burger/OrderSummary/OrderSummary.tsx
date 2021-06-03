@@ -2,7 +2,13 @@ import React from "react";
 
 import Button from "../../UI/Button/Button";
 
-class OrderSummary extends React.Component {
+interface OrderSummaryProps {
+  purchaseContinued: () => void;
+  purchaseCancelled: () => void;
+  price: number;
+}
+
+class OrderSummary extends React.Component<OrderSummaryProps> {
   render() {
     const ingredientSummary = Object.keys(this.props.ingredients).map(
       (igKey) => {

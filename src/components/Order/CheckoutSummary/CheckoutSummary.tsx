@@ -5,7 +5,12 @@ import Button from "../../UI/Button/Button";
 
 import classes from "./CheckoutSummary.module.css";
 
-const CheckoutSummary: React.FC = (props) => {
+interface CheckoutSummaryProps {
+  checkoutCancelled: () => void;
+  checkoutConfirmed: () => void;
+}
+
+const CheckoutSummary: React.FC<CheckoutSummaryProps> = (props) => {
   return (
     <div className={classes.CheckoutSummary}>
       <h1>We hope you like your order!</h1>
