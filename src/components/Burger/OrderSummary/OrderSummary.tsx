@@ -12,9 +12,9 @@ interface OrderSummaryProps {
 
 class OrderSummary extends React.Component<OrderSummaryProps> {
   render() {
-    console.log(this.props.ingredients);
     const ingredientSummary = Object.keys(this.props.ingredients).map(
       (igKey) => {
+        console.log(igKey);
         return (
           <li key={igKey}>
             <span style={{ textTransform: "capitalize" }}>{igKey}</span>:{" "}

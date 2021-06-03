@@ -2,7 +2,11 @@ import React from "react";
 
 import classes from "./Order.module.css";
 
-const Order: React.FC = (props) => {
+interface OrderProps {
+  price: number;
+}
+
+const Order: React.FC<OrderProps> = (props) => {
   const ingredients = [];
 
   for (let ingredientName in props.ingredients) {
