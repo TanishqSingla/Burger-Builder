@@ -3,7 +3,7 @@ import React from "react";
 import classes from "./Button.module.css";
 
 interface buttonProps {
-  clicked: () => void;
+  clicked?: () => void;
   btnType: string;
   disabled?: boolean;
 }

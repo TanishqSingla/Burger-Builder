@@ -3,7 +3,11 @@ import PropTypes from "prop-types";
 
 import classes from "./BurgerIngredient.module.css";
 
-const BurgerIngredient = (props) => {
+interface BurgerIngredientProps {
+  type: string;
+}
+
+const BurgerIngredient: React.FC<BurgerIngredientProps> = (props) => {
   let ingredient;
   switch (props.type) {
     case "bread-bottom":
