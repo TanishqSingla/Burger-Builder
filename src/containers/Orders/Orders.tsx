@@ -3,10 +3,11 @@ import axios from "../../axios-orders";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 
 import Order from "../../components/Order/Order";
+import { orderDB } from "../../types/types";
 
 class Orders extends React.Component {
   state = {
-    orders: [],
+    orders: [] as orderDB[],
     loading: true,
   };
   componentDidMount() {
@@ -30,7 +31,7 @@ class Orders extends React.Component {
         {this.state.orders.map((order) => (
           <Order
             key={order.id}
-            ingredients={order.ingredients}
+            ingredients={order.ingreidents}
             price={order.price}
           />
         ))}

@@ -1,9 +1,12 @@
 import React from "react";
 
 import classes from "./Order.module.css";
+import { ingredients, ingredientName } from "../../types/types";
 
 interface OrderProps {
+  key: string;
   price: number;
+  ingredients: ingredients;
 }
 
 const Order: React.FC<OrderProps> = (props) => {
