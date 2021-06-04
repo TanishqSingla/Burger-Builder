@@ -14,3 +14,18 @@ export interface ingredients {
     meat: number;
     cheese: number;
 }
+
+export interface orderData {
+    country: string;
+    deliveryMethod: string;
+    email: string;
+    name: string;
+    street: number;
+    zip: number
+}
+
+export interface orderSchema {
+    ingreidents: ingredients;
+    orderData: orderData;
+    price: number
+}
