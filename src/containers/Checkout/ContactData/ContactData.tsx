@@ -6,6 +6,7 @@ import classes from "./ContactData.module.css";
 import axios from "../../../axios-orders";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
+import { storeState } from "../../../store/reducers/burgerBuilder";
 
 class ContactData extends React.Component {
   state = {
@@ -132,7 +133,10 @@ class ContactData extends React.Component {
       });
   };
 
-  inputChangeHandler = (e, inputIdentifier) => {
+  inputChangeHandler = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    inputIdentifier
+  ) => {
     const updatedOrderForm = {
       ...this.state.orderForm,
     };
@@ -169,7 +173,9 @@ class ContactData extends React.Component {
             elementType={formElement.config.elementType}
             elementConfig={formElement.config.elementConfig}
             value={formElement.config.value}
-            changed={(event) => this.inputChangeHandler(event, formElement.id)}
+            changed={(event: React.ChangeEvent<HTMLInputElement>) =>
+              this.inputChangeHandler(event, formElement.id)
+            }
             invalid={!formElement.config.valid}
             touched={formElement.config.touched}
             shouldValidate={formElement.config.validation}
@@ -192,7 +198,7 @@ class ContactData extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: storeState) => {
   return {
     ings: state.ingredients,
     price: state.totalPrice,

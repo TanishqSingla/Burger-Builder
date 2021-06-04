@@ -20,7 +20,7 @@ class Orders extends React.Component {
         this.setState({ loading: false, orders: fetchedOrders });
       })
       .catch((e) => {
-        this.state.loading({ loading: false });
+        this.setState({ loading: false });
       });
   }
 

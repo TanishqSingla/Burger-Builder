@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 
 import CheckoutSummary from "../../components/Order/CheckoutSummary/CheckoutSummary";
 import ContactData from "./ContactData/ContactData";
+import { storeState } from "../../store/reducers/burgerBuilder";
 
-class Checkout extends React.Component {
+class Checkout extends React.Component<> {
   checkoutCancelled = () => {
     this.props.history.goBack();
   };
@@ -31,7 +32,7 @@ class Checkout extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: storeState) => {
   return {
     ings: state.ingredients,
   };
