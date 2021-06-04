@@ -1,7 +1,16 @@
 import React from "react";
 
 import classes from "./BuildControl.module.css";
-const buildControl = (props) => (
+
+interface buildControlProps {
+  label: string;
+  type: string;
+  add: () => void;
+  remove: () => void;
+  disabled?: boolean;
+}
+
+const buildControl: React.FC<buildControlProps> = (props) => (
   <div className={classes.BuildControl}>
     <div className={classes.Label}>{props.label}</div>
     <button
