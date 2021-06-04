@@ -1,16 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import Burger from "./../../components/Burger/Burger";
-import BuildControls from "./../../components/Burger/BuildControls/BuildControls";
-import Modal from "./../../components/UI/Modal/Modal";
+import Burger from "../../components/Burger/Burger";
+import BuildControls from "../../components/Burger/BuildControls/BuildControls";
+import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
-import withErrorHandler from "./../../hoc/withErrorHandler/withErrorHandler";
+import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import axios from "../../axios-orders";
 
 import * as burgerBuilderActions from "../../store/actions/index";
 
 import Spinner from "../../components/UI/Spinner/Spinner";
+import { ingredients } from "../../types/types";
+import { storeState } from "../../store/reducers/burgerBuilder";
 
 class BurgerBuilder extends React.Component {
   state = {
@@ -30,9 +32,9 @@ class BurgerBuilder extends React.Component {
     //   });
   }
 
-  updatePurchaseState(ingredients) {
+  updatePurchaseState(ingredients: ingredients) {
     const sum = Object.keys(ingredients)
-      .map((igkey) => {
+      .map((igkey): number => {
         return ingredients[igkey];
       })
       .reduce((sum, e) => {
@@ -105,7 +107,7 @@ class BurgerBuilder extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: storeState) => {
   return {
     ings: state.ingredients,
     price: state.totalPrice,
