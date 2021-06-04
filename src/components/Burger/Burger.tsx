@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import classes from "./Burger.module.css";
 
-const burger = (props) => {
+const burger: React.FC = (props) => {
   let transformedIngredients = Object.keys(props.ingredients)
     .map((igkey) => {
       return [...Array(props.ingredients[igkey])].map((_, index) => {
