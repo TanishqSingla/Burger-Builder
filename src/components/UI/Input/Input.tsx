@@ -20,6 +20,8 @@ interface InputProps {
     ];
   };
   invalid: boolean;
+  shouldValidate?: boolean;
+  touched?: boolean;
   changed: (e: React.ChangeEvent<Input>) => void;
 }
 
