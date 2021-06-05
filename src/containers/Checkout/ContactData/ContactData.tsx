@@ -10,7 +10,7 @@ import { storeState } from "../../../store/reducers/burgerBuilder";
 import { RouteComponentProps } from "react-router";
 import { orderFormElement } from "../../../types/types";
 
-class ContactData extends React.Component<RouteComponentProps> {
+class ContactData extends React.Component<RouteComponentProps & storeState> {
   state = {
     orderForm: {
       name: {
@@ -130,7 +130,7 @@ class ContactData extends React.Component<RouteComponentProps> {
         this.setState({ loading: false });
         this.props.history.push("/");
       })
-      .catch((e) => {
+      .catch(() => {
         this.setState({ loading: false });
       });
   };

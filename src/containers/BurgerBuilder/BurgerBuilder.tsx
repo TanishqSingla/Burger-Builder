@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 
 import Burger from "../../components/Burger/Burger";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
@@ -15,13 +15,9 @@ import { ingredients } from "../../types/types";
 import { storeState } from "../../store/reducers/burgerBuilder";
 import { RouteComponentProps } from "react-router";
 
-interface BurgerBuiderProps {
-  price: number;
-}
+type mappedProps = ConnectedProps<typeof connector>;
 
-class BurgerBuilder extends React.Component<
-  RouteComponentProps & BurgerBuiderProps
-> {
+class BurgerBuilder extends React.Component<RouteComponentProps & mappedProps> {
   state = {
     purchasing: false,
     loading: false,
@@ -136,7 +132,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withErrorHandler(BurgerBuilder, axios));
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+export default connector(withErrorHandler(BurgerBuilder, axios));

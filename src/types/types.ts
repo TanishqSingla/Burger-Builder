@@ -6,12 +6,17 @@ export interface actions {
   ingredientName: ingredientName;
 }
 
+
 export interface ingredients {
   salad: number;
   bacon: number;
   meat: number;
   cheese: number;
   [key: string]: number;
+}
+
+export interface storeProps {
+  ings: ingredients;
 }
 
 export interface orderData {

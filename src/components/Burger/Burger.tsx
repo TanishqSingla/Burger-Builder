@@ -19,7 +19,6 @@ const burger: React.FC<RouteComponentProps & burgerProps> = (props) => {
     .reduce((arr, e) => {
       return arr.concat(e);
     }, []);
-  console.log(transformedIngredients);
   if (transformedIngredients.length === 0) {
     transformedIngredients.push(<p>Please add some ingredients</p>);
   }
