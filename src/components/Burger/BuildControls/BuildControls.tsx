@@ -14,6 +14,9 @@ interface buildControlsProps {
   price: number;
   ingredientAdded: (s: string) => void;
   ingredientRemoved: (s: string) => void;
+  purchasable: boolean;
+  ordered: () => void;
+  disabled: boolean[];
 }
 
 const buildControls: React.FC<buildControlsProps> = (props) => (
