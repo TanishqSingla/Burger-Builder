@@ -1,6 +1,6 @@
 import React from "react";
 import BurgerIngredient from "./BurgerIngredient/BurgerIngredients";
-import { withRouter } from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 
 import classes from "./Burger.module.css";
 import { ingredients } from "../../types/types";
@@ -9,7 +9,7 @@ interface burgerProps {
   ingredients: ingredients;
 }
 
-const burger: React.FC<burgerProps> = (props) => {
+const burger: React.FC<RouteComponentProps & burgerProps> = (props) => {
   let transformedIngredients = Object.keys(props.ingredients)
     .map((igkey) => {
       return [...Array(props.ingredients[igkey])].map((_, index) => {
