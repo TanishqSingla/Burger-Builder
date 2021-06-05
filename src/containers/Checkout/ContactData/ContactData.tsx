@@ -1,16 +1,20 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 
 import Button from "../../../components/UI/Button/Button";
 import classes from "./ContactData.module.css";
 import axios from "../../../axios-orders";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
-import { storeState } from "../../../store/reducers/burgerBuilder";
 import { RouteComponentProps } from "react-router";
 import { orderFormElement } from "../../../types/types";
+import { RootState } from "../../..";
 
-class ContactData extends React.Component<RouteComponentProps & storeState> {
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+class ContactData extends React.Component<
+  RouteComponentProps & PropsFromRedux
+> {
   state = {
     orderForm: {
       name: {
@@ -205,11 +209,13 @@ class ContactData extends React.Component<RouteComponentProps & storeState> {
   }
 }
 
-const mapStateToProps = (state: storeState) => {
+const mapStateToProps = (state: RootState) => {
   return {
     ings: state.ingredients,
     price: state.totalPrice,
   };
 };
 
-export default connect(mapStateToProps)(ContactData);
+const connector = connect(mapStateToProps);
+
+export default connector(ContactData);

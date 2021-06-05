@@ -1,6 +1,5 @@
 export type ingredientName = "salad" | "bacon" | "cheese" | "meat";
 
-export type actionType = "ADD_INGREDIENTS" | "REMOVE_INGREDIENTS";
 export interface actions {
   type: actionType;
   ingredientName: ingredientName;
@@ -13,10 +12,6 @@ export interface ingredients {
   meat: number;
   cheese: number;
   [key: string]: number;
-}
-
-export interface storeProps {
-  ings: ingredients;
 }
 
 export interface orderData {

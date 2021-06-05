@@ -12,11 +12,10 @@ import * as burgerBuilderActions from "../../store/actions/index";
 
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { ingredients, ingredientName } from "../../types/types";
-import { storeState } from "../../store/reducers/burgerBuilder";
 import { RouteComponentProps } from "react-router";
 import { AppDispatch } from "../..";
 
-type mappedProps = ConnectedProps<typeof connector>;
+export type mappedProps = ConnectedProps<typeof connector>;
 
 class BurgerBuilder extends React.Component<RouteComponentProps & mappedProps> {
   state = {
