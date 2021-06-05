@@ -3,8 +3,13 @@ import BurgerIngredient from "./BurgerIngredient/BurgerIngredients";
 import { withRouter } from "react-router-dom";
 
 import classes from "./Burger.module.css";
+import { ingredients } from "../../types/types";
 
-const burger: React.FC = (props) => {
+interface burgerProps {
+  ingredients: ingredients;
+}
+
+const burger: React.FC<burgerProps> = (props) => {
   let transformedIngredients = Object.keys(props.ingredients)
     .map((igkey) => {
       return [...Array(props.ingredients[igkey])].map((_, index) => {
