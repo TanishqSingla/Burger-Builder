@@ -4,7 +4,7 @@ import classes from "./BuildControl.module.css";
 
 interface buildControlProps {
   label: string;
-  type: string;
+  type?: string;
   add: () => void;
   remove: () => void;
   disabled?: boolean;
