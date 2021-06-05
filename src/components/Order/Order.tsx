@@ -1,11 +1,11 @@
 import React from "react";
 
 import classes from "./Order.module.css";
-import { ingredients, ingredientName } from "../../types/types";
+import { ingredients } from "../../types/types";
 
 interface OrderProps {
   key: string;
-  price: string;
+  price: string | number;
   ingredients: ingredients;
 }
 
@@ -38,7 +38,10 @@ const Order: React.FC<OrderProps> = (props) => {
     <div className={classes.Order}>
       <p>Ingredients: {ingredientOutput}</p>
       <p>
-        Price: <strong>USD {Number.parseFloat(props.price).toFixed(2)}</strong>
+        Price:{" "}
+        <strong>
+          USD {Number.parseFloat(props.price as string).toFixed(2)}
+        </strong>
       </p>
     </div>
   );
