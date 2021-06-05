@@ -5,7 +5,7 @@ import { ingredients, ingredientName } from "../../types/types";
 
 interface OrderProps {
   key: string;
-  price: number;
+  price: string;
   ingredients: ingredients;
 }
 
