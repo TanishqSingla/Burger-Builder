@@ -11,7 +11,7 @@ export interface ingredients {
   bacon: number;
   meat: number;
   cheese: number;
-  [key: string]: number
+  [key: string]: number;
 }
 
 export interface orderData {
@@ -28,4 +28,21 @@ export interface orderDB {
   ingreidents: ingredients;
   orderData: orderData;
   price: number;
+}
+
+export interface orderFormElement {
+  name: {
+    elementType: string;
+    elementConfig: {
+      type: string;
+      placeholder: string;
+    };
+    value: string;
+    validation: {
+      required: boolean;
+    };
+    valid: boolean;
+  };
+
+  [key: string]: string | number | object | boolean
 }

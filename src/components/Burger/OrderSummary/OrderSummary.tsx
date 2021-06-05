@@ -7,7 +7,7 @@ interface OrderSummaryProps {
   purchaseContinued: () => void;
   purchaseCancelled: () => void;
   ingredients: ingredients;
-  price: number;
+  price: string;
 }
 
 class OrderSummary extends React.Component<OrderSummaryProps> {

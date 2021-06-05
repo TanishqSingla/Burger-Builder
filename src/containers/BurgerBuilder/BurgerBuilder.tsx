@@ -13,8 +13,15 @@ import * as burgerBuilderActions from "../../store/actions/index";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { ingredients } from "../../types/types";
 import { storeState } from "../../store/reducers/burgerBuilder";
+import { RouteComponentProps } from "react-router";
 
-class BurgerBuilder extends React.Component {
+interface BurgerBuiderProps {
+  price: number;
+}
+
+class BurgerBuilder extends React.Component<
+  RouteComponentProps & BurgerBuiderProps
+> {
   state = {
     purchasing: false,
     loading: false,

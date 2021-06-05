@@ -7,8 +7,10 @@ import axios from "../../../axios-orders";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
 import { storeState } from "../../../store/reducers/burgerBuilder";
+import { RouteComponentProps } from "react-router";
+import { orderFormElement } from "../../../types/types";
 
-class ContactData extends React.Component {
+class ContactData extends React.Component<RouteComponentProps> {
   state = {
     orderForm: {
       name: {
@@ -135,12 +137,14 @@ class ContactData extends React.Component {
 
   inputChangeHandler = (
     e: React.ChangeEvent<HTMLInputElement>,
-    inputIdentifier
+    inputIdentifier: keyof orderFormElement
   ) => {
-    const updatedOrderForm = {
+    const updatedOrderForm: orderFormElement = {
       ...this.state.orderForm,
     };
-    const updatedFormElement = { ...updatedOrderForm[inputIdentifier] };
+    const updatedFormElement: orderFormElement = {
+      ...updatedOrderForm[inputIdentifier],
+    };
     updatedFormElement.value = e.target.value;
     updatedFormElement.touched = true;
     updatedFormElement.valid = this.checkValidity(
@@ -165,6 +169,9 @@ class ContactData extends React.Component {
         config: this.state.orderForm[key],
       });
     }
+
+    console.log(formElementsArray);
+
     let form = (
       <form onSubmit={this.orderHandler}>
         {formElementsArray.map((formElement) => (

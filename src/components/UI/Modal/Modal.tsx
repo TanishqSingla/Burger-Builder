@@ -1,4 +1,4 @@
-import React, { Props, PropsWithChildren } from "react";
+import React, { PropsWithChildren } from "react";
 import Backdrop from "./../Backdrop/Backdrop";
 
 import classes from "./Modal.module.css";

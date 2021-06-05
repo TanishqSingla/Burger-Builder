@@ -6,7 +6,7 @@ import CheckoutSummary from "../../components/Order/CheckoutSummary/CheckoutSumm
 import ContactData from "./ContactData/ContactData";
 import { storeState } from "../../store/reducers/burgerBuilder";
 
-class Checkout extends React.Component<RouteComponentProps> {
+class Checkout extends React.Component<RouteComponentProps & any> {
   checkoutCancelled = () => {
     this.props.history.goBack();
   };

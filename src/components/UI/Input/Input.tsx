@@ -2,7 +2,28 @@ import React from "react";
 
 import classes from "./Input.module.css";
 
-const Input = (props) => {
+type Input = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+
+interface InputProps {
+  key: string;
+  value: string;
+  label?: string;
+  elementType: string;
+  elementConfig: {
+    type: string;
+    placeholder: string;
+    options: [
+      {
+        value: string;
+        displayValue: string;
+      }
+    ];
+  };
+  invalid: boolean;
+  changed: (e: React.ChangeEvent<Input>) => void;
+}
+
+const Input: React.FC<InputProps> = (props) => {
   let inputElement = null;
   const inputClasses = [classes.InputElement];
 
