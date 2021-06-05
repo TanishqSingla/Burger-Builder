@@ -1,17 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 import {actions} from '../../types/types'
 
-export interface storeState {
-    ingredients: {
-       salad: number
-       bacon: number
-       cheese: number
-       meat: number
-    },
-    totalPrice: number;
-}
-
-const initialState: storeState = {
+const initialState = {
   ingredients: {
     salad: 0,
     bacon: 0,
