@@ -11,6 +11,7 @@ export interface ingredients {
   bacon: number;
   meat: number;
   cheese: number;
+  [key: string]: number
 }
 
 export interface orderData {

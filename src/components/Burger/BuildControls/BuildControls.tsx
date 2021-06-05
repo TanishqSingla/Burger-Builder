@@ -10,7 +10,13 @@ const controls = [
   { label: "Meat", type: "meat" },
 ];
 
-const buildControls = (props) => (
+interface buildControlsProps {
+  price: number;
+  ingredientAdded: (s: string) => void;
+  ingredientRemoved: (s: string) => void;
+}
+
+const buildControls: React.FC<buildControlsProps> = (props) => (
   <div className={classes.BuildControls}>
     <p>
       Current Price: $<strong>{props.price.toFixed(2)}</strong>
