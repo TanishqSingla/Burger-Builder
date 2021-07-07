@@ -110,7 +110,7 @@ class BurgerBuilder extends React.Component<RouteComponentProps & mappedProps> {
   }
 }
 
-const mapStateToProps = (state: storeState) => {
+const mapStateToProps = (state) => {
   return {
     ings: state.ingredients,
     price: state.totalPrice,

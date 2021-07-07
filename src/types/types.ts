@@ -1,7 +1,6 @@
 export type ingredientName = "salad" | "bacon" | "cheese" | "meat";
 
 export interface actions {
-  type: actionType;
   ingredientName: ingredientName;
 }
 
