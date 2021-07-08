@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect, ConnectedProps } from "react-redux";
 
 import Burger from "../../components/Burger/Burger";
@@ -13,7 +13,6 @@ import * as burgerBuilderActions from "../../store/actions/index";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { ingredients, ingredientName } from "../../types/types";
 import { RouteComponentProps } from "react-router";
-import { AppDispatch } from "../..";
 
 export type mappedProps = ConnectedProps<typeof connector>;
 
@@ -117,7 +116,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: AppDispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
     onIngredientAdded: (ingName: ingredientName) =>
       dispatch({

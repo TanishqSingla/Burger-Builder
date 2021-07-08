@@ -2,6 +2,7 @@ export type ingredientName = "salad" | "bacon" | "cheese" | "meat";
 
 export interface actions {
   ingredientName: ingredientName;
+  type: "ADD_INGREDIENT" & "REMOVE_INGREDIENT";
 }
 
 
