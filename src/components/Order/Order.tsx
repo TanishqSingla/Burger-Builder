@@ -10,7 +10,7 @@ interface OrderProps {
 }
 
 const Order: React.FC<OrderProps> = (props) => {
-  const ingredients = [];
+  const ingredients: Array<{ name: string; amount: number | string }> = [];
 
   for (let ingredientName in props.ingredients) {
     ingredients.push({

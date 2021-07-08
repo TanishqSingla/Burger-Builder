@@ -26,7 +26,7 @@ interface InputProps {
 }
 
 const Input: React.FC<InputProps> = (props) => {
-  let inputElement = null;
+  let inputElement: JSX.Element | null = null;
   const inputClasses = [classes.InputElement];
 
   if (props.invalid && props.shouldValidate && props.touched) {

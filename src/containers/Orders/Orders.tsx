@@ -14,7 +14,7 @@ class Orders extends React.Component {
     axios
       .get("/orders.json")
       .then((res) => {
-        const fetchedOrders = [];
+        const fetchedOrders: string[] = [];
         for (let key in res.data) {
           fetchedOrders.push({ ...res.data[key], id: key });
         }

@@ -6,15 +6,11 @@ import classes from "./ContactData.module.css";
 import axios from "../../../axios-orders";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
-import { RouteComponentProps } from "react-router";
 import { orderFormElement } from "../../../types/types";
 import { RootState } from "../../..";
 
-type PropsFromRedux = ConnectedProps<typeof connector>;
 
-class ContactData extends React.Component<
-  RouteComponentProps & PropsFromRedux
-> {
+class ContactData extends React.Component {
   state = {
     orderForm: {
       name: {
@@ -130,7 +126,7 @@ class ContactData extends React.Component<
     };
     axios
       .post("/orders.json", order)
-      .then((res) => {
+      .then((_res) => {
         this.setState({ loading: false });
         this.props.history.push("/");
       })
@@ -140,13 +136,13 @@ class ContactData extends React.Component<
   };
 
   inputChangeHandler = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    inputIdentifier: keyof orderFormElement
+    e,
+    inputIdentifier 
   ) => {
-    const updatedOrderForm: orderFormElement = {
+    const updatedOrderForm = {
       ...this.state.orderForm,
     };
-    const updatedFormElement: orderFormElement = {
+    const updatedFormElement = {
       ...updatedOrderForm[inputIdentifier],
     };
     updatedFormElement.value = e.target.value;
@@ -165,8 +161,10 @@ class ContactData extends React.Component<
     this.setState({ orderForm: updatedOrderForm, formIsValid });
   };
 
+  // TODO Correct types here
   render() {
     const formElementsArray = [];
+
     for (let key in this.state.orderForm) {
       formElementsArray.push({
         id: key,
@@ -184,9 +182,9 @@ class ContactData extends React.Component<
             elementType={formElement.config.elementType}
             elementConfig={formElement.config.elementConfig}
             value={formElement.config.value}
-            changed={(event: React.ChangeEvent<HTMLInputElement>) =>
+            changed={(event =>
               this.inputChangeHandler(event, formElement.id)
-            }
+            )}
             invalid={!formElement.config.valid}
             touched={formElement.config.touched}
             shouldValidate={formElement.config.validation}
@@ -209,7 +207,7 @@ class ContactData extends React.Component<
   }
 }
 
-const mapStateToProps = (state: RootState) => {
+const mapStateToProps = (state) => {
   return {
     ings: state.ingredients,
     price: state.totalPrice,
