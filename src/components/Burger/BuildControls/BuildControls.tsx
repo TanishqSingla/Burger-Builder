@@ -10,10 +10,11 @@ const controls = [
   { label: "Meat", type: "meat" },
 ];
 
+// TODO use correct types
 interface buildControlsProps {
   price: number;
-  ingredientAdded: (s: string) => void;
-  ingredientRemoved: (s: string) => void;
+  ingredientAdded: any;
+  ingredientRemoved: any;
   purchasable: boolean;
   ordered: () => void;
   disabled: any;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect, ConnectedProps } from "react-redux";
 
 import Burger from "../../components/Burger/Burger";
@@ -66,7 +66,7 @@ class BurgerBuilder extends React.Component<RouteComponentProps & mappedProps> {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
 
-    let orderSummary = null;
+    let orderSummary: JSX.Element | null = null;
 
     let burger = this.state.error ? <p>Network Error</p> : <Spinner />;
     if (this.props.ings) {
