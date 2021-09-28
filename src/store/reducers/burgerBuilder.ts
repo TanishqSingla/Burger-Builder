@@ -1,7 +1,17 @@
 import * as actionTypes from "../actions/actionTypes";
-import {actions} from '../../types/types'
+import { AnyAction } from "redux";
 
-const initialState = {
+export interface BurgerBuilderState {
+  ingredients: {
+    salad: number,
+    bacon: number,
+    cheese: number,
+    meat: number
+  }
+  totalPrice: number
+}
+
+const initialState: BurgerBuilderState = {
   ingredients: {
     salad: 0,
     bacon: 0,
@@ -18,7 +28,7 @@ const INGREDIENT_PRICES = {
   meat: 1.3,
 };
 
-const burgerBuilder = (state = initialState, action: actions) => {
+const reducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case actionTypes.ADD_INGREDIENTS:
       return {
@@ -39,8 +49,8 @@ const burgerBuilder = (state = initialState, action: actions) => {
         totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName],
       };
     default:
+      return state;
   }
-  return state;
 };
 
-export default burgerBuilder;
+export default reducer;

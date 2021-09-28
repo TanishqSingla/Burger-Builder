@@ -9,7 +9,7 @@ interface burgerProps {
   ingredients: ingredients;
 }
 
-const burger: React.FC<RouteComponentProps & burgerProps> = (props) => {
+const Burger: React.FC<RouteComponentProps & burgerProps> = (props) => {
   let transformedIngredients = Object.keys(props.ingredients)
     .map((igkey) => {
       return [...Array(props.ingredients[igkey])].map((_, index) => {
@@ -31,4 +31,4 @@ const burger: React.FC<RouteComponentProps & burgerProps> = (props) => {
   );
 };
 
-export default withRouter(burger);
+export default withRouter(Burger);

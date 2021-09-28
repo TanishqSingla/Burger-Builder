@@ -10,7 +10,11 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore } from "redux";
 import burgerBuilder from "./store/reducers/burgerBuilder";
 
-const store = createStore(burgerBuilder);
+const store = createStore(
+  burgerBuilder,
+  // @ts-ignore
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 const app: ReactElement = (
   <Provider store={store}>
@@ -26,7 +30,3 @@ ReactDOM.render(app, document.getElementById("root"));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
-export type RootState = ReturnType<typeof store.getState>;
-
-export type AppDispatch = typeof store.dispatch;

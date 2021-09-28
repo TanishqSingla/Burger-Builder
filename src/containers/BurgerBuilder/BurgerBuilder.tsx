@@ -14,8 +14,6 @@ import Spinner from "../../components/UI/Spinner/Spinner";
 import { ingredients, ingredientName } from "../../types/types";
 import { RouteComponentProps } from "react-router";
 
-export type mappedProps = ConnectedProps<typeof connector>;
-
 class BurgerBuilder extends React.Component<RouteComponentProps & mappedProps> {
   state = {
     purchasing: false,
@@ -116,21 +114,15 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    onIngredientAdded: (ingName: ingredientName) =>
-      dispatch({
-        type: burgerBuilderActions.addIngredient(ingName),
-        ingredientName: ingName,
-      }),
-    onIngredientRemoved: (ingName: ingredientName) =>
-      dispatch({
-        type: burgerBuilderActions.removeIngredient(ingName),
-        ingredientName: ingName,
-      }),
-  };
+const mapDispatchToProps = {
+  onIngredientAdded: (ingName: ingredientName) =>
+    burgerBuilderActions.addIngredient(ingName),
+  onIngredientRemoved: (ingName: ingredientName) =>
+    burgerBuilderActions.removeIngredient(ingName),
 };
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
+
+type mappedProps = ConnectedProps<typeof connector>;
 
 export default connector(withErrorHandler(BurgerBuilder, axios));
