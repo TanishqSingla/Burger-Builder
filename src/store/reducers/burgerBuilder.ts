@@ -6,7 +6,8 @@ export interface BurgerBuilderState {
     salad: number,
     bacon: number,
     cheese: number,
-    meat: number
+    meat: number,
+    [key: string]: number
   }
   totalPrice: number
 }
@@ -28,6 +29,11 @@ const INGREDIENT_PRICES = {
   meat: 1.3,
 };
 
+interface actionType {
+  type?: 'ADD_INGREDIENTS' | 'REMOVE_INGREDIENTS';
+  ingredientName?: typeof initialState.ingredients
+}
+
 const reducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case actionTypes.ADD_INGREDIENTS:
@@ -37,6 +43,7 @@ const reducer = (state = initialState, action: AnyAction) => {
           ...state.ingredients,
           [action.ingredientName]: state.ingredients[action.ingredientName] + 1,
         },
+        //@ts-ignore
         totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
       };
     case actionTypes.REMOVE_INGREDIENTS:
@@ -46,6 +53,7 @@ const reducer = (state = initialState, action: AnyAction) => {
           ...state.ingredients,
           [action.ingredientName]: state.ingredients[action.ingredientName] - 1,
         },
+        //@ts-ignore
         totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName],
       };
     default:

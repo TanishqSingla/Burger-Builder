@@ -13,6 +13,7 @@ import * as burgerBuilderActions from "../../store/actions/index";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { ingredients, ingredientName } from "../../types/types";
 import { RouteComponentProps } from "react-router";
+import { BurgerBuilderState } from "../../store/reducers/burgerBuilder";
 
 class BurgerBuilder extends React.Component<RouteComponentProps & mappedProps> {
   state = {
@@ -56,11 +57,15 @@ class BurgerBuilder extends React.Component<RouteComponentProps & mappedProps> {
   };
 
   render() {
-    const disabledInfo = {
-      ...this.props.ings,
+    const disabledInfo: { [key: string]: boolean } = {
+      salad: false,
+      bacon: false,
+      cheese: false,
+      meat: false,
     };
+
     for (let key in disabledInfo) {
-      disabledInfo[key] = disabledInfo[key] <= 0;
+      disabledInfo[key] = this.props.ings[key] <= 0;
     }
 
     let orderSummary: JSX.Element | null = null;
@@ -107,7 +112,7 @@ class BurgerBuilder extends React.Component<RouteComponentProps & mappedProps> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: BurgerBuilderState) => {
   return {
     ings: state.ingredients,
     price: state.totalPrice,

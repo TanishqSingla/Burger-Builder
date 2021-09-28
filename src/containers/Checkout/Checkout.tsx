@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import CheckoutSummary from "../../components/Order/CheckoutSummary/CheckoutSummary";
 import ContactData from "./ContactData/ContactData";
+import { BurgerBuilderState } from "../../store/reducers/burgerBuilder";
 
 class Checkout extends React.Component<RouteComponentProps & any> {
   checkoutCancelled = () => {
@@ -31,7 +32,7 @@ class Checkout extends React.Component<RouteComponentProps & any> {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: BurgerBuilderState) => {
   return {
     ings: state.ingredients,
   };
