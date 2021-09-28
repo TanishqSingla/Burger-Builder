@@ -3,11 +3,27 @@ import axios from "../../axios-orders";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 
 import Order from "../../components/Order/Order";
-import { orderDB } from "../../types/types";
+import { ingredients } from "../../store/reducers/burgerBuilder";
+
+interface orderData {
+  country: string;
+  deliveryMethod: string;
+  email: string;
+  name: string;
+  street: number;
+  zip: number;
+}
+
+interface order {
+  id: string;
+  ingredients: ingredients;
+  orderData: orderData;
+  price: number;
+}
 
 class Orders extends React.Component {
   state = {
-    orders: [] as orderDB[],
+    orders: [] as order[],
     loading: true,
   };
   componentDidMount() {
@@ -20,7 +36,7 @@ class Orders extends React.Component {
         }
         this.setState({ loading: false, orders: fetchedOrders });
       })
-      .catch((e) => {
+      .catch((_) => {
         this.setState({ loading: false });
       });
   }
@@ -31,7 +47,7 @@ class Orders extends React.Component {
         {this.state.orders.map((order) => (
           <Order
             key={order.id}
-            ingredients={order.ingreidents}
+            ingredients={order.ingredients}
             price={order.price}
           />
         ))}

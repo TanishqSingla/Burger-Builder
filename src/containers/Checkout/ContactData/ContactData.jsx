@@ -6,8 +6,6 @@ import classes from "./ContactData.module.css";
 import axios from "../../../axios-orders";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
-import { orderFormElement } from "../../../types/types";
-import { RootState } from "../../..";
 
 
 class ContactData extends React.Component {

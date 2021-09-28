@@ -11,9 +11,11 @@ import axios from "../../axios-orders";
 import * as burgerBuilderActions from "../../store/actions/index";
 
 import Spinner from "../../components/UI/Spinner/Spinner";
-import { ingredients, ingredientName } from "../../types/types";
 import { RouteComponentProps } from "react-router";
-import { BurgerBuilderState } from "../../store/reducers/burgerBuilder";
+import {
+  BurgerBuilderState,
+  ingredients,
+} from "../../store/reducers/burgerBuilder";
 
 class BurgerBuilder extends React.Component<RouteComponentProps & mappedProps> {
   state = {
@@ -120,9 +122,9 @@ const mapStateToProps = (state: BurgerBuilderState) => {
 };
 
 const mapDispatchToProps = {
-  onIngredientAdded: (ingName: ingredientName) =>
+  onIngredientAdded: (ingName: string) =>
     burgerBuilderActions.addIngredient(ingName),
-  onIngredientRemoved: (ingName: ingredientName) =>
+  onIngredientRemoved: (ingName: string) =>
     burgerBuilderActions.removeIngredient(ingName),
 };
 

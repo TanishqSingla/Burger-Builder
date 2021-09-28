@@ -3,7 +3,7 @@ import BurgerIngredient from "./BurgerIngredient/BurgerIngredients";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 
 import classes from "./Burger.module.css";
-import { ingredients } from "../../types/types";
+import { ingredients } from "../../store/reducers/burgerBuilder";
 
 interface burgerProps {
   ingredients: ingredients;
