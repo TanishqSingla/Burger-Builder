@@ -1,7 +1,7 @@
 import React from "react";
+import { ingredients } from "../../../store/reducers/burgerBuilder";
 
 import Button from "../../UI/Button/Button";
-import { ingredients } from "../../../types/types";
 
 interface OrderSummaryProps {
   purchaseContinued: () => void;

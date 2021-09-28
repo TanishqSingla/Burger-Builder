@@ -1,7 +1,7 @@
 import React from "react";
 
 import classes from "./Order.module.css";
-import { ingredients } from "../../types/types";
+import { ingredients } from "../../store/reducers/burgerBuilder";
 
 interface OrderProps {
   key: string;

@@ -4,8 +4,7 @@ import Burger from "../../Burger/Burger";
 import Button from "../../UI/Button/Button";
 
 import classes from "./CheckoutSummary.module.css";
-
-import { ingredients } from "../../../types/types";
+import { ingredients } from "../../../store/reducers/burgerBuilder";
 
 interface CheckoutSummaryProps {
   checkoutCancelled: () => void;
